@@ -6,61 +6,85 @@
 //
 
 import UIKit
-//import Kingfisher
 
 class RepositoryViewController: UIViewController {
     
-    @IBOutlet weak var totalCountLabel: UILabel!
+    @IBOutlet weak var tableView: UITableView!
     
     private lazy var viewModel: RepositoryViewModel = RepositoryViewModel(delegate: self)
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupView()
         setup()
     }
     
-    //send to the viewModel the selected category from the list
     func setup() {
-        viewModel.setup()
+        viewModel.loadRepository()
+        tableView.isHidden = true
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(RepositoryCell.self)
+        setupNavBar()
+        
+        tableView.rowHeight = UITableView.automaticDimension;
+        tableView.estimatedRowHeight = 600;
     }
 }
 
 private extension RepositoryViewController {
     
-    func setupView() {
-        hideComponents()
-    }
-    
-    //fill the label and the imageView
-    func fill() {
-        
-        totalCountLabel.text = viewModel.repository.items.description
-    }
-    
-    func hideComponents() {
-        totalCountLabel.isHidden = true
-    }
-    
-    func showComponents() {
-        totalCountLabel.isHidden = false
-    }
-    
     func setupNavBar() {
-        navigationItem.title = "title"
+        navigationItem.title = "Repositórios"
+    }
+    
+    func cell(_ tableView: UITableView, indexPath: IndexPath, repositoryDTO: RepositoryCellDTO) -> UITableViewCell {
+        
+        let cell = tableView.dequeCell(RepositoryCell.self, indexPath)
+        cell.fill(dto: repositoryDTO)
+        
+        cell.selectionStyle = .none
+        
+        return cell
+    }
+}
+
+extension RepositoryViewController: UITableViewDataSource {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        viewModel.numberOfSection()
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        viewModel.numberOfRows()
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        cell(tableView, indexPath: indexPath, repositoryDTO: viewModel.dtoForRows(index: indexPath.row))
+    }
+}
+
+extension RepositoryViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        viewModel.selectedRepository(index: indexPath.row)
     }
 }
 
 extension RepositoryViewController: RepositoryViewModelDelegate {
     
-    func didSearch() {
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
+    func didLoad() {
+        DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
-            
-            self.fill()
-            self.setupNavBar()
-            self.showComponents()
+            self.tableView.reloadData()
+            self.tableView.isHidden = false
         }
+    }
+    
+    func sendRepository(_ repository: String, name: String) {
+        
+        let repositoryDetailViewController = PullsViewController()
+        repositoryDetailViewController.setup(repository, name)
+        navigationController?.pushViewController(repositoryDetailViewController, animated: true)
     }
 }

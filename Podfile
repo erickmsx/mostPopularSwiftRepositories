@@ -6,5 +6,5 @@ target 'githubAPI' do
   use_frameworks!
 
   # Pods for githubAPI
-
+pod 'Kingfisher', '~> 7.0'
 end

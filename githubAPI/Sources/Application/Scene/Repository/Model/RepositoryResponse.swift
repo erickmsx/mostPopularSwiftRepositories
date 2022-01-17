@@ -14,12 +14,41 @@ struct RepositoryResponse: Codable {
 struct ItemsDetail: Codable{
     let name: String?
     let description: String?
+    let forks: Int
+    let stars: Int
+    let owner: OwnerDetail
 }
+
+struct OwnerDetail: Codable{
+    let authorLogin: String?
+    let avatarUrl: String?
+}
+
+extension OwnerDetail {
+    enum CodingKeys: String, CodingKey {
+        case authorLogin = "login"
+        case avatarUrl = "avatar_url"
+    }
+}
+
+extension ItemsDetail {
+    enum CodingKeys: String, CodingKey {
+        case stars = "stargazers_count"
+        case name
+        case description
+        case forks
+        case owner
+    }
+}
+
+
+
+
 
 /*extension RepositoryResponse {
     enum CodingKeys: String, CodingKey {
-        case value = "value"
- }
+        case authorLogin = "login"
+    }
 }*/
 
 

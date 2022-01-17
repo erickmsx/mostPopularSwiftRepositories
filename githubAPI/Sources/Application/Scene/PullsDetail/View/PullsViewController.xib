@@ -8,9 +8,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RepositoryViewController" customModule="githubAPI" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PullsViewController" customModule="githubAPI" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="mhf-qv-nNB" id="JHD-Ws-3oe"/>
+                <outlet property="tableView" destination="CXK-jl-xJB" id="zL1-8r-vSK"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,7 +19,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mhf-qv-nNB">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CXK-jl-xJB">
                     <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
@@ -27,12 +27,12 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="mhf-qv-nNB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="09r-TF-vP8"/>
-                <constraint firstItem="mhf-qv-nNB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="A9y-Fa-GqN"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="mhf-qv-nNB" secondAttribute="trailing" id="BXB-qT-63q"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="mhf-qv-nNB" secondAttribute="bottom" id="uaq-jr-dbn"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="CXK-jl-xJB" secondAttribute="bottom" id="I5K-Gj-MiB"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="CXK-jl-xJB" secondAttribute="trailing" id="Twc-eK-bFP"/>
+                <constraint firstItem="CXK-jl-xJB" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Zqs-z0-ll1"/>
+                <constraint firstItem="CXK-jl-xJB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="brB-Zh-H1Y"/>
             </constraints>
-            <point key="canvasLocation" x="59" y="79"/>
+            <point key="canvasLocation" x="46" y="79"/>
         </view>
     </objects>
     <resources>

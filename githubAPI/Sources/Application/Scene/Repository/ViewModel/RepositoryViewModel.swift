@@ -9,16 +9,15 @@ import Foundation
 
 protocol RepositoryViewModelDelegate: AnyObject {
     
-    func didSearch()
+    func didLoad()
+    func sendRepository(_ repository: String, name: String)
 }
 
 class RepositoryViewModel {
-    
+    var repositories: [ItemsDetail] = []
     private var repositoryResponse: RepositoryResponse?
     private weak var delegate: RepositoryViewModelDelegate?
-    let apiService = APIService()
     
-    //map the request into the model
     var repository: RepositoryResponse {
         
         return repositoryResponse ?? RepositoryResponse(items: [])
@@ -28,22 +27,39 @@ class RepositoryViewModel {
         self.delegate = delegate
     }
     
-    //receive the selected category from viewController
-    func setup() {
-        
-        loadRepository() //send the selected item to request
-    }
-    
-    //take the selected category from func setup and make the request to the beck-end
-    //get the results of beck-end
     func loadRepository() {
         
-        apiService.fetchRepository() { [weak self] result in
+        APIService().fetchRepository() { [weak self] result in
             guard let self = self else { return }
             
             self.repositoryResponse = result
-            self.delegate?.didSearch()
+            self.delegate?.didLoad()
+        }
+    }
+    
+    func numberOfSection() -> Int {
+        1
+    }
+    
+    func numberOfRows() -> Int {
+        return repositoryResponse?.items.count ?? 0
+    }
+    
+    func dtoForRows(index: Int) -> RepositoryCellDTO {
+        
+        guard let dto = repositoryResponse?.items[index] else{
+            
+            return RepositoryCellDTO(name: "", description: "", authorLogin: "", forks: "", stars: "", avatarUrl: "")
+        }
+        
+        return RepositoryCellDTO(name: dto.name ?? "", description: dto.description ?? "", authorLogin: dto.owner.authorLogin ?? "", forks: "\(String(describing: dto.forks))", stars: "\(String(describing: dto.stars))", avatarUrl: dto.owner.avatarUrl ?? "")
+    }
+    
+    func selectedRepository(index: Int) {
+        if let repository = repositoryResponse?.items[index]{
+            delegate?.sendRepository(repository.owner.authorLogin ?? "", name: repository.name ?? "")
         }
     }
 }
+
 
