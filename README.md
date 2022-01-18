@@ -1,5 +1,5 @@
 # Most Popular Swift Repositories ⭐ 
-![repositoriesGitHUB](https://user-images.githubusercontent.com/84104484/149849186-385c6da8-9f72-4ca7-a21a-0848711fe761.gif)
+![repositoryGit](https://user-images.githubusercontent.com/84104484/149853097-5a1f402a-bc6c-41ce-8d94-f39eb3cd90f7.gif)
 
 ## The App 💡
 
