@@ -11,8 +11,8 @@ Download all files and load into xCode
 
 ## What you can do:
 
-* You can see the list of repositories with details about the creator
-* Selecting one you can see their list of pull requests with informations about It 
+* You can see the list of repositories with details about the repository and creator
+* Selecting one you can see their list of pull requests with details about It 
 
 ## Resources
 * The App was made in xCode 12.5.1 supported for swift
