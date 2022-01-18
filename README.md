@@ -1,4 +1,5 @@
 # Most Popular Swift Repositories ⭐ 
+![repositoriesGitHUB](https://user-images.githubusercontent.com/84104484/149849186-385c6da8-9f72-4ca7-a21a-0848711fe761.gif)
 
 ## The App 💡
 
@@ -10,7 +11,8 @@ Download all files and load into xCode
 
 ## What you can do:
 
-* You can see the list of repositories and selecting one you can see their list of pull requests  
+* You can see the list of repositories with details of the creator
+* Selecting one you can see their list of pull requests with informations about It 
 
 ## Resources
 * The App was made in xCode 12.5.1 supported for swift
