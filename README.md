@@ -21,6 +21,7 @@ Download all files and load into xCode
 * TableView
 * Xib
 * Constrants
+* MVVM
 * All project based in object oriented programming
 
 ## Author
