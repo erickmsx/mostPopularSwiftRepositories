@@ -11,7 +11,7 @@ Download all files and load into xCode
 
 ## What you can do:
 
-* You can see the list of repositories with details of the creator
+* You can see the list of repositories with details about the creator
 * Selecting one you can see their list of pull requests with informations about It 
 
 ## Resources
