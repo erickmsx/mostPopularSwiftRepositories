@@ -16,8 +16,8 @@ Download all files and load into xCode
 
 ## Resources
 * The App was made in xCode 12.5.1 supported for swift
-* API links: <a href="https://api.github.com/search/repositories?q=language:Swift&sort=stars&page=1">repositories list</a> 
-and <a href="https://api.github.com/repos//%3Creposit%C3%B3rio%3E/pulls">pulls list</a>
+* API links: <a href="https://api.github.com/search/repositories?q=language:Swift&sort=stars&page=1">repositories</a> 
+and <a href="https://api.github.com/repos//%3Creposit%C3%B3rio%3E/pulls">pulls</a>
 * JSON Rest
 * TableView
 * Xib
