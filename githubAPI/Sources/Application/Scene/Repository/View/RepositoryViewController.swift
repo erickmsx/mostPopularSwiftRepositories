@@ -25,6 +25,7 @@ class RepositoryViewController: UIViewController {
         tableView.delegate = self
         tableView.register(RepositoryCell.self)
         setupNavBar()
+        fjalsdkçfjlskadfjçlksdjfadls
         
         tableView.rowHeight = UITableView.automaticDimension;
         tableView.estimatedRowHeight = 600;
